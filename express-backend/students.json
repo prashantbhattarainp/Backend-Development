@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Prashant",
+    "branch": "CSE"
+  },
+  {
+    "id": 2,
+    "name": "Pacific",
+    "branch": "ECE"
+  },
+  {
+    "id": 3,
+    "name": "Sohan",
+    "branch": "IT"
+  },
+  {
+    "id": 4,
+    "name": "Balen",
+    "branch": "BE"
+  }
+]

@@ -1,14 +1,9 @@
 const express = require("express");
 const app = express();
+const fs = require("fs");
 app.use(express.json()); 
 
 const PORT = 8000;
-
-const students = [
-    { id: 1, name: "Prashant", branch: "CSE" },
-    { id: 2, name: "Pacific", branch: "ECE" },
-    { id: 3, name: "Sohan", branch: "IT" }
-];
 
 app.get("/", (req, res) => {
     res.send("Welcome to the home Page");
@@ -38,9 +33,30 @@ app.get("/students/:id", (req, res) => {
 });
 
 app.post("/students/register", (req, res) => {
-    const data = req.body;
-    students.push(data);
-    res.json(students);
+    const {name, branch,id} = req.body;
+    if(!name || !branch) return res.status(400).send("Details Missing");
+
+    fs.readFile("./students.json", "utf-8",(err, data)=>{
+        if(err){
+            return res.status(500).send("Error whileaccessing data")
+        }
+        const students = JSON.parse(data);
+        
+        students.push({
+            id,
+            name,
+            branch
+        })
+
+        fs.writeFile("students.json", JSON.stringify(students,null,2),(err)=>{
+            if(err){
+                return res.status(500).send("Error while saving data")
+            }
+        })
+
+        return res.status(200).json(students)
+    }
+    )
 });
 
 app.listen(PORT, () => {
