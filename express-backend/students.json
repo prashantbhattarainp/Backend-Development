@@ -11,12 +11,17 @@
   },
   {
     "id": 3,
-    "name": "Sohan",
-    "branch": "IT"
+    "name": "Ansh",
+    "branch": "B.tech-CS"
   },
   {
     "id": 4,
     "name": "Balen",
     "branch": "BE"
+  },
+  {
+    "id": 5,
+    "name": "Pacific",
+    "branch": "B.tech"
   }
 ]
