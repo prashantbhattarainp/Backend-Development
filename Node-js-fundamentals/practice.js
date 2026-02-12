@@ -10,9 +10,6 @@ fs.readFile('example.txt', 'utf8', (err,data) =>{
 
 
 
-
-
-
 const fs = require("fs")
 const content ="Hello this is a content"
 fs.writeFile('Example.txt','content', 'utf8', (err)=>{
